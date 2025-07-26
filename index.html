@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IIT Bombay Campus Ambassador - Web Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f0f4ff;
+      color: #1a1a1a;
+      overflow-x: hidden;
+    }
+    header {
+      background: #003366;
+      padding: 1rem 2rem;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: 500;
+    }
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 2rem;
+      text-align: center;
+      background: linear-gradient(to right, #004080, #0073e6);
+      color: white;
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    .hero button {
+      padding: 0.8rem 1.5rem;
+      background: #ffcc00;
+      border: none;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .hero button:hover {
+      transform: scale(1.1);
+    }
+    .hero img {
+      margin-top: 2rem;
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .section {
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    .section h2 {
+      font-size: 2rem;
+      color: #003366;
+      margin-bottom: 1rem;
+    }
+    .section p {
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      color: #333;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .hero {
+        padding: 3rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header id="navbar">
+    <h2>IITB CA Program</h2>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#benefits">Benefits</a>
+      <a href="#apply">Apply</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Become a Web Dev Campus Ambassador</h1>
+    <p>Join the prestigious IIT Bombay Campus Ambassador Program and represent your campus in the world of web technologies.</p>
+    <button id="apply-btn">Apply Now</button>
+    <img src="heroimg.png" alt="IIT Bombay" />
+  </section>
+
+  <section class="section" id="about">
+    <h2>About the Program</h2>
+    <p>As a Campus Ambassador for Web Development, you'll act as a liaison between IIT Bombay and your college. Host workshops, build micro-sites, and promote tech initiatives.</p>
+  </section>
+
+  <section class="section" id="benefits">
+    <h2>Why Join?</h2>
+    <p>Get certified by IIT Bombay, work on real-world web dev projects, grow your portfolio, receive mentorship, and build your personal brand in the tech world.</p>
+  </section>
+
+  <section class="section" id="apply">
+    <h2>How to Apply?</h2>
+    <p>Click the button above to fill out the application form. Show your passion for web development and leadership. Let your campus shine!</p>
+  </section>
+
+  <script>
+    // Navbar slide-in
+    gsap.from("#navbar", {
+      y: -100,
+      duration: 1,
+      ease: "bounce"
+    });
+
+    // Button pulse
+    gsap.to("#apply-btn", {
+      scale: 1.05,
+      repeat: -1,
+      yoyo: true,
+      duration: 1,
+      ease: "power1.inOut"
+    });
+
+    // Scroll-triggered fade-ins
+    gsap.utils.toArray(".section").forEach(section => {
+      gsap.from(section, {
+        scrollTrigger: {
+          trigger: section,
+          start: "top 80%",
+          toggleActions: "play none none none"
+        },
+        opacity: 0,
+        y: 50,
+        duration: 1
+      });
+    });
+  </script>
+</body>
+</html>
